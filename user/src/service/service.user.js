@@ -16,6 +16,26 @@ const userLogin = async (email, password) => {
   return result;
 };
 
+const createLogin = async (user) => {
+  const {
+    email, password,
+  } = user;
+  const checkUser = await userLogin(email, password);
+  const { error } = checkUser;
+  if (!error) {
+    return {
+      error: {
+        code: StatusCodes.UNAUTHORIZED,
+        message: 'Esse email de usuário já possui conta! Tente outro!',
+      },
+    };
+  }
+
+  const create = await User.create(user);
+  return create;
+};
+
 module.exports = {
   userLogin,
+  createLogin,
 };

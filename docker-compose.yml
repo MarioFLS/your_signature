@@ -1,0 +1,28 @@
+version: "3"
+services:
+
+  base:
+    container_name: base
+    build: "./"
+    ports:
+      - 4000:4000
+    depends_on:
+      - user
+    environment:
+      - USER_URL=http://auth:4100
+
+  user:
+    container_name: user_db
+    build: ./user
+    ports:
+      - 4100:4100
+    depends_on:
+      - user_db
+    environment:
+      - USER_URL=http://auth:4100
+
+  customers_db:
+    image: mysql
+    container_name: user_db
+    environment:
+      MYSQL_ROOT_PASSWORD: password

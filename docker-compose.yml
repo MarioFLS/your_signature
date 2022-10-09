@@ -5,9 +5,10 @@ services:
     container_name: base
     build: ./
     ports:
-      - 4000:4000
+      - 5000:5000
     depends_on:
       - user
+      - product
 
   user:
     container_name: user
@@ -15,8 +16,7 @@ services:
     ports:
       - 4100:4100
     depends_on:
-      - user
-      - product
+      - user_db
 
   product:
     container_name: product

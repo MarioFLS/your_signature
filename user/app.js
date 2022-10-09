@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 
-const PORT = 5200;
+const PORT = 4100;
 
 app.get('/', (_req, res) =>
   res.status(200).json({ bem_vindo: 'Seja Bem vindo a aplicação' })

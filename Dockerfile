@@ -6,6 +6,6 @@ COPY . .
 
 RUN npm install
 
-EXPOSE 10000
+EXPOSE 5000
 
 CMD [ "node", "app.js" ]

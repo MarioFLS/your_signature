@@ -10,7 +10,6 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: 'name',
       },
       password: {
         type: Sequelize.STRING,
@@ -31,7 +30,7 @@ module.exports = {
       timestamps: false,
     });
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface, _Sequelize) {
     await queryInterface.dropTable('Users');
   },
 };

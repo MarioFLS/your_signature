@@ -3,7 +3,7 @@ services:
 
   base:
     container_name: base
-    build: "./"
+    build: ./
     ports:
       - 4000:4000
     depends_on:

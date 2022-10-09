@@ -9,4 +9,4 @@ const Error = (err, _req, res, _next) => {
   });
 };
 
-export default Error;
+module.exports = { Error };

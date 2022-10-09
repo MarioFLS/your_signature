@@ -12,7 +12,6 @@ const validateLogin = (req, res, next) => {
     .messages({
       'any.required': 'Insira seus dados corretamente',
       'string.empty': 'Preencha corretamente o email e senha',
-      'number.base': 'Insira um Saldo Válido',
     });
 
   const { error } = loginValidation.validate({ email, password });
@@ -23,4 +22,4 @@ const validateLogin = (req, res, next) => {
   return next();
 };
 
-export default validateLogin;
+module.exports = { validateLogin };

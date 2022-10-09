@@ -4,8 +4,15 @@ const cors = require('cors');
 
 const app = express();
 
-const PORT = 5000;
-app.get('/', (req, res) =>
+/* app.use((_req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  app.use(cors());
+  next();
+}); */
+
+const PORT = 4000;
+app.get('/', (_req, res) =>
   res.status(200).json({ bem_vindo: 'Seja Bem vindo a aplicação' })
 );
 

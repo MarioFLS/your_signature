@@ -7,8 +7,8 @@ const app = express();
 
 const PORT = process.env.PORT || 4100;
 
-app.get('/', (_req, res) =>
-  res.status(200).json({ bem_vindo: 'Seja Bem vindo a aplicação: User' })
-);
+app.get('/', (_req, res) => res.status(200).json({
+  bem_vindo: 'Seja Bem vindo a aplicação: User',
+}));
 
 app.listen(PORT, console.log('Rodando na porta ', PORT));

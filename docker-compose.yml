@@ -17,6 +17,10 @@ services:
       - 4100:4100
     depends_on:
       - user_db
+    environment:
+      - MYSQL_HOST=user_db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
 
   product:
     container_name: product
@@ -25,15 +29,25 @@ services:
       - 4200:4200
     depends_on:
       - product_db
+    environment:
+      - MYSQL_HOST=product_db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
 
   user_db:
     image: mysql
     container_name: user_db
     environment:
       MYSQL_ROOT_PASSWORD: password
+    ports:
+      # Expõe a porta modificada do banco
+      - 9000:3306
 
   product_db:
     image: mysql
     container_name: product_db
     environment:
       MYSQL_ROOT_PASSWORD: password
+    ports:
+      # Expõe a porta modificada do banco
+      - 8000:3306

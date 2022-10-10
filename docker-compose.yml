@@ -9,6 +9,7 @@ services:
     depends_on:
       - user
       - product
+      - user_products
 
   user:
     container_name: user
@@ -18,7 +19,6 @@ services:
     depends_on:
       - user_db
     environment:
-      - MYSQL_HOST=user_db
       - MYSQL_USER=root
       - MYSQL_PASSWORD=password
 
@@ -30,9 +30,18 @@ services:
     depends_on:
       - product_db
     environment:
-      - MYSQL_HOST=product_db
       - MYSQL_USER=root
       - MYSQL_PASSWORD=password
+
+  user_products:
+    container_name: user_products
+    build: ./userProducts
+    ports:
+      - 4300:4300
+    depends_on:
+      - user_products_db
+    environment:
+      - MONGO_INITDB_ROOT_PASSWORD=password
 
   user_db:
     image: mysql
@@ -51,3 +60,11 @@ services:
     ports:
       # Expõe a porta modificada do banco
       - 8000:3306
+
+  user_products_db:
+    image: mongo:4.4.14
+    container_name: user_products_db
+    ports:
+      - 7000:27017
+networks:
+  yout_signature_networks:

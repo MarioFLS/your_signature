@@ -1,4 +1,3 @@
-const StatusCodes = require('http-status-codes');
 const { Product } = require('../models');
 
 const getAllProducts = async () => {

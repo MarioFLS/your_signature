@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 require('express-async-errors');
 const cors = require('cors');
-const { getAll } = require('./src/controllers/controllers.product');
+const { getAll, getById } = require('./src/controllers/controllers.product');
 require('dotenv').config();
 
 const app = express();
@@ -14,6 +14,7 @@ const uploadDirectory = path.join(__dirname, 'public');
 app.use('/images', express.static(uploadDirectory));
 
 app.get('/products', getAll);
+app.get('/products/:id', getById);
 
 app.get('/', (_req, res) => res.status(200)
   .json({ bem_vindo: 'Seja Bem vindo a aplicação: Product' }));

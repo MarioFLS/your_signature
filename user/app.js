@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 4100;
 app.use(express.json());
 
 app.post('/login', validateLogin, login);
-app.post('/user', validateUser, create);
+app.post('/create', validateUser, create);
 
 app.get('/', (_req, res) => res.status(200).json({
   bem_vindo: 'Seja Bem vindo a aplicação: User',

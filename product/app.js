@@ -13,10 +13,7 @@ const uploadDirectory = path.join(__dirname, 'public');
 
 app.use('/images', express.static(uploadDirectory));
 
-app.get('/products', getAll);
-app.get('/products/:id', getById);
-
-app.get('/', (_req, res) => res.status(200)
-  .json({ bem_vindo: 'Seja Bem vindo a aplicação: Product' }));
+app.get('/', getAll);
+app.get('/:id', getById);
 
 app.listen(PORT, console.log('Rodando na porta ', PORT));

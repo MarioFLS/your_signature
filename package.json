@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "devInstall": "concurrently \"npm install \" \"cd user && npm install\" \"cd product && npm install\" ",
-    "devTestAPI": "concurrently  \"cd user && npm run dev\" \"cd product && npm run dev\" \"npm run dev \"",
-    "dev": "nodemon app.js"
+    "devInstall": "concurrently \"npm install \" \"cd user && npm install && npm run restore\" \"cd product && npm install && npm run restore\" \"cd userProducts && npm install \"",
+    "restore": "concurrently  \"cd user && npm run restore\" \"cd product && npm run restore\" ",
+    "start:dev": "concurrently  \"cd user && npm run dev\" \"cd product && npm run dev\" \"cd userProducts && npm run dev \" \"npm run dev \""
   },
   "keywords": [],
   "author": "",

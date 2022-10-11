@@ -1,10 +1,11 @@
 const { createNewSignature } = require('../services/service.signature');
 
-const newSignature = (req, res) => {
-  const { authorization } = req.headers;
-  const response = createNewSignature(authorization, req.body);
+const newSignature = async (token, req, res, _next) => {
+  const signatures = req.body;
+  await Promise.all(signatures
+    .map((signature) => createNewSignature({ userId: token.id, ...signature })));
 
-  return res.status(200).json(response);
+  return res.status(200).json({ message: 'Sucesso' });
 };
 
 module.exports = { newSignature };

@@ -1,4 +1,7 @@
-const { createNewSignature } = require('../services/service.signature');
+const {
+  createNewSignature,
+  getSignatureByUserID,
+} = require('../services/service.signature');
 
 const newSignature = async (token, req, res, _next) => {
   const signatures = req.body;
@@ -8,4 +11,9 @@ const newSignature = async (token, req, res, _next) => {
   return res.status(200).json({ message: 'Sucesso' });
 };
 
-module.exports = { newSignature };
+const getSignatures = async (req, res) => {
+  const response = await getSignatureByUserID(req.params.id);
+  return res.status(200).json(response);
+};
+
+module.exports = { newSignature, getSignatures };

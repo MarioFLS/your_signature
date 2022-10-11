@@ -14,7 +14,7 @@ const login = async (req, res, next) => {
 };
 
 const create = async (req, res, next) => {
-  const response = await createLogin(req.body).catch((e) => console.log(e));
+  const response = await createLogin(req.body);
   const { error } = response;
   if (error) { return next(response); }
 

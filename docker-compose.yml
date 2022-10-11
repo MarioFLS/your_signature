@@ -4,6 +4,16 @@ services:
   base:
     container_name: base
     build: ./
+    # Mesmo que `docker run -t`
+    tty: true
+    # Mesmo que `docker run -i`
+    stdin_open: true
+    # Substitui o comando padrão da imagem do node
+    command: bash
+    volumes:
+      # Monta o diretório atual, com todos os dados do projeto, 
+      # dentro do diretório /app
+      - ./:/app
     ports:
       - 5000:5000
     depends_on:
@@ -18,30 +28,37 @@ services:
       - 4100:4100
     depends_on:
       - user_db
+    restart: always
     environment:
       - MYSQL_USER=root
       - MYSQL_PASSWORD=password
+    volumes:
+      - ./:/app
 
   product:
     container_name: product
     build: ./product
     ports:
       - 4200:4200
+    restart: always
     depends_on:
       - product_db
     environment:
       - MYSQL_USER=root
       - MYSQL_PASSWORD=password
+    volumes:
+      - ./:/app
 
   user_products:
     container_name: user_products
     build: ./userProducts
+    restart: always
     ports:
       - 4300:4300
     depends_on:
       - user_products_db
-    environment:
-      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - ./:/app
 
   user_db:
     image: mysql
@@ -60,11 +77,19 @@ services:
     ports:
       # Expõe a porta modificada do banco
       - 8000:3306
+    volumes:
+      - ./:/app
 
   user_products_db:
-    image: mongo:4.4.14
+    image: mongo:5.0.7
     container_name: user_products_db
     ports:
       - 7000:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - ./:/app
 networks:
-  yout_signature_networks:
+  default:
+    name: yout_signature_networks

@@ -1,5 +1,5 @@
 const StatusCodes = require('http-status-codes');
-const { getAllProducts, getByIdProducts } = require('../service/service.product');
+const { getAllProducts, getByIdProducts } = require('../services/service.product');
 
 const getAll = async (_req, res) => {
   const response = await getAllProducts();

@@ -1,6 +1,6 @@
 const StatusCodes = require('http-status-codes');
 const { generateToken } = require('../helpers/generateToken');
-const { userLogin, createLogin } = require('../service/service.user');
+const { userLogin, createLogin } = require('../services/service.user');
 
 const login = async (req, res, next) => {
   const { email, password } = req.body;

@@ -1,7 +1,7 @@
 const chai = require('chai');
 const shell = require('shelljs');
 const StatusCodes = require('http-status-codes');
-const { userLogin, createLogin } = require('../../src/services/service.user');
+const { userLogin, createUser } = require('../../src/services/service.user');
 require('dotenv/config');
 
 const { expect } = chai;
@@ -36,7 +36,7 @@ describe('Teste de Service - Teste de Login do Usuário >>> ', () => {
 
 describe('Teste de Service - Criar um novo usuário >>> ', () => {
   it('Caso haja sucesso na Criação do novo usuário', async () => {
-    const { dataValues } = await createLogin(newUser);
+    const { dataValues } = await createUser(newUser);
     expect(dataValues).to.deep.contains.keys(
       'id',
       'name',
@@ -47,7 +47,7 @@ describe('Teste de Service - Criar um novo usuário >>> ', () => {
     );
   });
   it('Caso haja falha na Criação do novo usuário', async () => {
-    const response = await createLogin(newUser);
+    const response = await createUser(newUser);
     expect(response).to.deep.equal({
       error: {
         code: StatusCodes.UNAUTHORIZED,

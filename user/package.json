@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "restore": "sequelize-cli db:drop && sequelize-cli db:create && sequelize-cli db:migrate && sequelize-cli db:seed:all",
+    "restore": "sequelize-cli db:create && sequelize-cli db:migrate && sequelize-cli db:seed:all",
     "test": "jest",
     "lint": "eslint --no-inline-config --ext .js, --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },
@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "eslint": "^8.25.0",

@@ -10,7 +10,7 @@
   "parserOptions": {
     "ecmaVersion": "latest"
   },
-  "ignorePatterns": ["models/index.js", "tests"],
+  "ignorePatterns": ["models/index.js", "tests", "coverage"],
   "rules": {
     "max-len": ["error", { "code": 90, "ignoreUrls": true, "ignoreComments": true }],
     "no-unreachable": "error",

@@ -3,13 +3,30 @@ const { database } = require('./connection');
 
 const userProductsSchema = mongoose.Schema(
   {
-    userId: Number,
-    userEmail: String,
-    quantity: Number,
-    productId: Number,
-    productName: String,
-    productImage: String,
-    signedIn: Date,
+    userId: {
+      type: Number,
+      required: true,
+    },
+    quantity: {
+      type: Number,
+      required: true,
+    },
+    productId: {
+      type: Number,
+      required: true,
+    },
+    productName: {
+      type: String,
+      required: true,
+    },
+    productImage: {
+      type: String,
+      required: true,
+    },
+    signedIn: {
+      type: Date,
+      required: true,
+    },
   },
   { versionKey: false },
 );

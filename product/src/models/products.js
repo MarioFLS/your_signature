@@ -5,6 +5,9 @@ const Product = (sequelize, DataTypes) => sequelize.define('Product', {
     type: DataTypes.STRING,
     field: 'url_image',
   },
+  memoryType1: DataTypes.INTEGER,
+  memoryType2: DataTypes.INTEGER,
+  memoryType3: DataTypes.INTEGER,
 }, {
   timestamps: false,
 });

@@ -20,6 +20,18 @@ module.exports = {
         type: Sequelize.STRING,
         field: 'url_image',
       },
+      memoryType1: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
+      memoryType2: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+      },
+      memoryType3: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+      },
     }, {
       timestamps: false,
     });

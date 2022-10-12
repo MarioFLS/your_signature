@@ -20,4 +20,5 @@ app.post('/create', validateUser, create);
 app.use('/', swaggerUI.serve, swaggerUI.setup(swaggerConfig));
 
 app.use(Error);
-app.listen(PORT, console.log('Rodando na porta ', PORT));
+
+app.listen(PORT, console.log(`Rodando na porta ' ${PORT};\nLink: http://localhost:${PORT}/`));

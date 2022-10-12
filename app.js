@@ -1,6 +1,7 @@
 const express = require('express');
 const proxy = require('express-http-proxy');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 require('express-async-errors');
 const cors = require('cors');
 
@@ -9,6 +10,7 @@ const app = express();
 app.use(express.json());
 
 const PORT = 4000;
+
 app.use(
   morgan(':method - :url - status: :status - response time: :response-time ms ')
 );
@@ -21,4 +23,5 @@ app.get('/', (_req, res) =>
   res.status(200).json({ bem_vindo: 'Seja Bem vindo a aplicação' })
 );
 
+mongoose.disconnect()
 app.listen(PORT, console.log('Rodando na porta ', PORT));

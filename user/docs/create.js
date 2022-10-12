@@ -86,6 +86,22 @@ const create = {
           },
         },
       },
+      401: {
+        description: 'UNAUTHORIZED',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'object',
+              properties: {
+                message: {
+                  type: 'string',
+                  example: 'Esse email de usuário já possui conta! Tente outro!'
+                },
+              },
+            },
+          },
+        },
+      },
     },
   },
 };

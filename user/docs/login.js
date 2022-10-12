@@ -62,6 +62,22 @@ const login = {
           },
         },
       },
+      401: {
+        description: 'UNAUTHORIZED',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'object',
+              properties: {
+                message: {
+                  type: 'string',
+                  example: 'Seu email ou senha estão incorretos.'
+                },
+              },
+            },
+          },
+        },
+      },
     },
   },
 };

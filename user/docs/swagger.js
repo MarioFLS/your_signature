@@ -1,3 +1,4 @@
+const { create } = require("./create");
 const { login } = require("./login");
 
 module.exports = {
@@ -13,7 +14,8 @@ module.exports = {
   }],
   basePath: '/v1',
   paths: {
-    '/login': login
+    '/login': login,
+    '/create': create
   },
 };
 

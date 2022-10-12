@@ -1,6 +1,6 @@
 const chai = require('chai');
 const mongoose = require('mongoose');
-const { closeDatabase } = require('../../src/models/connection');
+const { closeDatabase, database } = require('../../src/models/connection');
 const {
   createNewSignature,
   getSignatureByUserID,
@@ -25,7 +25,10 @@ beforeAll(() => {
   Signatures();
 });
 
-afterAll(() => mongoose.disconnect());
+afterAll(() => {
+  mongoose.disconnect();
+  return closeDatabase();
+});
 
 describe('Teste de Service - Criar uma nova assinatura >>> ', () => {
   it('Caso haja sucesso na Criação do novo usuário', async () => {
@@ -42,7 +45,7 @@ describe('Teste de Service - Criar uma nova assinatura >>> ', () => {
         '_id'
       );
     });
-    closeDatabase();
+    
   });
   it('Buscar Assinatura por ID', async () => {
     const response = await getSignatureByUserID(1);
@@ -57,6 +60,5 @@ describe('Teste de Service - Criar uma nova assinatura >>> ', () => {
         '_id'
       );
     });
-    closeDatabase();
   });
 });

@@ -29,7 +29,8 @@
     "sequelize-cli": "^6.5.1",
     "shelljs": "^0.8.5",
     "sinon": "^14.0.1",
-    "sinon-chai": "^3.7.0"
+    "sinon-chai": "^3.7.0",
+    "swagger-ui-express": "^4.5.0"
   },
   "devDependencies": {
     "jest": "^29.1.2",

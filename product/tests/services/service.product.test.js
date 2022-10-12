@@ -15,12 +15,12 @@ describe('Teste de Service - Teste de Produtos >>> ', () => {
     const products = await getAllProducts();
     const response = products.map(({ dataValues }) => dataValues);
     response.forEach((product) =>
-      expect(product).to.deep.contains.keys('id', 'name', 'price', 'urlImage')
+      expect(product).to.deep.contains.keys('id', 'name', 'price', 'urlImage', 'memoryType1')
     );
   });
   it('Retorna produto pelo id', async () => {
     const { dataValues } = await getByIdProducts(1);
-    expect(dataValues).to.deep.contains.keys('id', 'name', 'price', 'urlImage');
+    expect(dataValues).to.deep.contains.keys('id', 'name', 'price', 'urlImage', 'memoryType1');
     expect(dataValues).to.deep.contains({ id: 1 });
   });
 });

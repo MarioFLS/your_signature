@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "concurrently  \"cd user && npm start\" \"cd product && npm start\" \"cd userProducts && npm start \" \"node app.js\"",
     "devInstall": "concurrently \"npm install \" \"cd user && npm install && npm run restore\" \"cd product && npm install && npm run restore\" \"cd userProducts && npm install \"",
     "restore": "concurrently  \"cd user && npm run restore\" \"cd product && npm run restore\" ",
-    "start:dev": "concurrently  \"cd user && npm run dev\" \"cd product && npm run dev\" \"cd userProducts && npm run dev \" \"npm run dev \""
+    "start:dev": "concurrently  \"cd user && npm run dev\" \"cd product && npm run dev\" \"cd userProducts && npm run dev \" \"nodemon app.js \""
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,8 @@
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
     "express-http-proxy": "^1.6.3",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "mongoose": "^6.6.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

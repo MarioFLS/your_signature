@@ -4,7 +4,7 @@ const { login, create } = require('./src/controllers/controllers.user');
 const { Error } = require('./src/middleware/middleware.error');
 const { validateUser } = require('./src/middleware/validate.create.user');
 const { validateLogin } = require('./src/middleware/validate.login');
-const swaggerConfig = require('./swagger');
+const swaggerConfig = require('./docs/swagger');
 require('express-async-errors');
 require('dotenv').config();
 

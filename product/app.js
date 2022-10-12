@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 require('express-async-errors');
 const { getAll, getById } = require('./src/controllers/controllers.product');
-const { Error } = require('../userProducts/src/middleware/middleware.error');
+const { Error } = require('./middleware/middleware.error');
 require('dotenv').config();
 
 const app = express();

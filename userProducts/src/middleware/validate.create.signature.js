@@ -11,6 +11,7 @@ const validateSignature = (req, res, next) => {
     productName: requiredItemString,
     productImage: requiredItemString,
     signedIn: joi.date().not().empty().required(),
+    price: requiredItemNumber,
   })).messages({
     'any.required': 'Insira os dados corretamentos',
     'string.empty': 'Insira o nome do produto',
@@ -41,6 +42,10 @@ const validateSignature = (req, res, next) => {
     if (type === 'signedIn') {
       return res.status(StatusCodes.UNAUTHORIZED)
         .json({ message: 'Insira uma data válida', index });
+    }
+    if (type === 'price') {
+      return res.status(StatusCodes.UNAUTHORIZED)
+        .json({ message: 'Insira um valor válido', index });
     }
 
     return res.status(StatusCodes.UNAUTHORIZED)

@@ -27,6 +27,10 @@ const userProductsSchema = mongoose.Schema(
       type: Date,
       required: true,
     },
+    price: {
+      type: Number,
+      required: true,
+    },
   },
   { versionKey: false },
 );

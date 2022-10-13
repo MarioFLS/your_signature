@@ -1,9 +1,11 @@
 const express = require('express');
+const swaggerUI = require('swagger-ui-express');
 const { newSignature, getSignatures } = require('./src/controllers/controller.signature');
 const { tokenValidate } = require('./src/middleware/validate.token');
 const { Error } = require('./src/middleware/middleware.error');
 const { validateSignature } = require('./src/middleware/validate.create.signature');
 const { closeDatabase } = require('./src/models/connection');
+const swaggerConfig = require('./docs/swagger');
 const { Signatures } = require('./src/models/signatures');
 require('express-async-errors');
 require('dotenv').config();
@@ -15,14 +17,16 @@ const PORT = process.env.PORT || 4300;
 app.use(express.json());
 Signatures();
 
-app.post('/', validateSignature, tokenValidate, newSignature);
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerConfig));
 
-app.get('/:id', getSignatures);
+app.post('/create', validateSignature, tokenValidate, newSignature);
 
-app.get('/', (_req, res) => res.status(200).json({
-  bem_vindo: 'Seja Bem vindo a aplicação: User Product',
-}));
+app.get('/user', tokenValidate, getSignatures);
 
 app.use(Error);
-app.listen(PORT, () => console.log(`Rodando na porta: ${PORT}`));
+app.listen(
+  PORT,
+  console.log(`Rodando na porta ' ${PORT};`),
+  console.log(`Link da documentação: http://localhost:${PORT}/docs`),
+);
 closeDatabase();

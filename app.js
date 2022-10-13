@@ -8,7 +8,7 @@ const swaggerConfig = require('./docs/swagger');
 const cors = require('cors');
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 
 const PORT = 4000;
@@ -23,8 +23,8 @@ app.use('/user', proxy('http://localhost:3100'));
 app.use('/product', proxy('http://localhost:3200'));
 app.use('/signatures', proxy('http://localhost:3300'));
 
-app.use("*", proxy(`http://localhost:${PORT}/docs`));
-console.log('oi')
+app.all("/product/*", swaggerUI.serve, swaggerUI.setup(swaggerConfig));
+app.all("*", swaggerUI.serve, swaggerUI.setup(swaggerConfig));
 
 app.listen(
   PORT,

@@ -13,7 +13,7 @@ module.exports = {
     version: '1.0.0',
   },
   servers: [{
-    url: 'http://localhost:3100',
+    url: 'http://localhost:4000',
     description: 'Servidor Local',
   }],
   components: {

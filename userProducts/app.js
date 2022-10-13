@@ -22,7 +22,7 @@ app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerConfig));
 app.post('/create', validateSignature, tokenValidate, newSignature);
 
 app.get('/user', tokenValidate, getSignatures);
-
+app.all('*', swaggerUI.serve, swaggerUI.setup(swaggerConfig));
 app.use(Error);
 app.listen(
   PORT,

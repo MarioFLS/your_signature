@@ -10,7 +10,6 @@ const login = {
       {
         name: 'body',
         in: 'body',
-        description: 'email do usuário',
         required: true,
         type: 'object',
         properties: {

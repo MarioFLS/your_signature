@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 3100;
 app.use(express.json());
 
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerConfig));
+
 app.post('/login', validateLogin, login);
 app.post('/create', validateUser, create);
 

@@ -18,6 +18,7 @@ const newSignature = [
     productName: 'iPhone 13 Max',
     productImage: 'url de imagem',
     signedIn: '10/06/2022',
+    price: 3490.00
   },
 ];
 
@@ -25,8 +26,8 @@ beforeAll(() => {
   Signatures();
 });
 
-afterAll(() => {
-  mongoose.disconnect();
+afterAll(async () => {
+  await database().dropDatabase();
   return closeDatabase();
 });
 
@@ -57,6 +58,7 @@ describe('Teste de Service - Criar uma nova assinatura >>> ', () => {
         'productName',
         'productImage',
         'signedIn',
+        'price',
         '_id'
       );
     });

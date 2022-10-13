@@ -29,8 +29,9 @@ describe('Teste de Controllers - Testando Assinaturas', () => {
     res.json = Sinon.stub().resolves();
   });
 
-  afterEach(() => {
+  afterEach(async() => {
     Sinon.restore();
+    await database().dropDatabase();
     return closeDatabase();
   });
 
@@ -38,13 +39,13 @@ describe('Teste de Controllers - Testando Assinaturas', () => {
     req.body = newSignature;
     Sinon.stub(Signatures, 'create').resolves([{}]);
     await Controller.newSignature(token, req, res, next);
-    expect(res.status).to.been.calledWith(200);
+    expect(res.status).to.been.calledWith(201);
   });
 
   it('Testando pegar assinaturas', async () => {
     req.params = {id: 2};
     Sinon.stub(Signatures, 'find').resolves([{}]);
-    await Controller.getSignatures(req, res);
+    await Controller.getSignatures(token, req, res, next);
     expect(res.status).to.been.calledWith(200);
   });
 });

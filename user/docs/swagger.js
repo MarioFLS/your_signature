@@ -1,5 +1,5 @@
 const { create } = require("./create");
-const { login } = require("./login");
+const { login } = require("./user");
 
 module.exports = {
   openapi: '3.0.0',

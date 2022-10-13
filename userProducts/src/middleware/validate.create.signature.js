@@ -6,7 +6,6 @@ const requiredItemNumber = joi.number().min(1).required();
 
 const validateSignature = (req, res, next) => {
   const loginValidation = joi.array().items(joi.object({
-    quantity: requiredItemNumber,
     productId: requiredItemNumber,
     productName: requiredItemString,
     productImage: requiredItemString,
@@ -34,10 +33,6 @@ const validateSignature = (req, res, next) => {
           message: 'A imagem do produto não pode estar vázia',
           index,
         });
-    }
-    if (type === 'quantity') {
-      return res.status(StatusCodes.UNAUTHORIZED)
-        .json({ message: 'Insira uma quantidade acima de 0', index });
     }
     if (type === 'signedIn') {
       return res.status(StatusCodes.UNAUTHORIZED)

@@ -7,10 +7,6 @@ const userProductsSchema = mongoose.Schema(
       type: Number,
       required: true,
     },
-    quantity: {
-      type: Number,
-      required: true,
-    },
     productId: {
       type: Number,
       required: true,

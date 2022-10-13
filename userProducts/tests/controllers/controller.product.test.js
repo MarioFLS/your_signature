@@ -11,7 +11,6 @@ chai.use(sinonChai);
 const newSignature = [
   {
     userId: 2,
-    quantity: 1,
     productId: 1,
     productName: 'iPhone 13 Max',
     productImage: 'url de imagem',

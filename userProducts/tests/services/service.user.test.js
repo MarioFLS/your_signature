@@ -13,7 +13,6 @@ const { expect } = chai;
 const newSignature = [
   {
     userId: 2,
-    quantity: 1,
     productId: 1,
     productName: 'iPhone 13 Max',
     productImage: 'url de imagem',
@@ -38,7 +37,6 @@ describe('Teste de Service - Criar uma nova assinatura >>> ', () => {
     signatures.forEach(({ _doc }) => {
       expect(_doc).to.deep.contains.keys(
         'userId',
-        'quantity',
         'productId',
         'productName',
         'productImage',
@@ -53,7 +51,6 @@ describe('Teste de Service - Criar uma nova assinatura >>> ', () => {
     response.forEach(({ _doc }) => {
       expect(_doc).to.deep.contains.keys(
         'userId',
-        'quantity',
         'productId',
         'productName',
         'productImage',

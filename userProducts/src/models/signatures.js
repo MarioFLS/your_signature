@@ -19,6 +19,10 @@ const userProductsSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    memory: {
+      type: Number,
+      required: true,
+    },
     signedIn: {
       type: Date,
       required: true,

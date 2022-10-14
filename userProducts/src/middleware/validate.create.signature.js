@@ -11,6 +11,7 @@ const validateSignature = (req, res, next) => {
     productImage: requiredItemString,
     signedIn: joi.date().not().empty().required(),
     price: requiredItemNumber,
+    memory: requiredItemNumber,
   })).messages({
     'any.required': 'Insira os dados corretamentos',
     'string.empty': 'Insira o nome do produto',
@@ -42,7 +43,10 @@ const validateSignature = (req, res, next) => {
       return res.status(StatusCodes.UNAUTHORIZED)
         .json({ message: 'Insira um valor válido', index });
     }
-
+    if (type === 'memory') {
+      return res.status(StatusCodes.UNAUTHORIZED)
+        .json({ message: 'Insira um memória válido', index });
+    }
     return res.status(StatusCodes.UNAUTHORIZED)
       .json({ message: error.details[0].message, index });
   }

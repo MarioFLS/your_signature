@@ -1,5 +1,4 @@
 const chai = require('chai');
-const mongoose = require('mongoose');
 const { closeDatabase, database } = require('../../src/models/connection');
 const {
   createNewSignature,
@@ -17,7 +16,8 @@ const newSignature = [
     productName: 'iPhone 13 Max',
     productImage: 'url de imagem',
     signedIn: '10/06/2022',
-    price: 3490.00
+    price: 3490.00,
+    memory: 64
   },
 ];
 
@@ -41,6 +41,7 @@ describe('Teste de Service - Criar uma nova assinatura >>> ', () => {
         'productName',
         'productImage',
         'signedIn',
+        'memory',
         '_id'
       );
     });
@@ -56,6 +57,7 @@ describe('Teste de Service - Criar uma nova assinatura >>> ', () => {
         'productImage',
         'signedIn',
         'price',
+        'memory',
         '_id'
       );
     });

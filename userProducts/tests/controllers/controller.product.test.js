@@ -15,6 +15,7 @@ const newSignature = [
     productName: 'iPhone 13 Max',
     productImage: 'url de imagem',
     signedIn: '10/06/2022',
+    memory: 64
   },
 ];
 describe('Teste de Controllers - Testando Assinaturas', () => {

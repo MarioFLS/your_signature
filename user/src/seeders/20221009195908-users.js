@@ -25,6 +25,7 @@ module.exports = {
         cpf: '987651234',
       },
       {
+        id: 4,
         name: 'Bojji',
         email: 'bojji@gmail.com',
         password: 'senhaMuitoForte',

@@ -12,7 +12,7 @@ require('dotenv').config();
 
 const app = express();
 
-const PORT = process.env.PORT || 4300;
+const PORT = process.env.PORT || 3300;
 
 app.use(express.json());
 Signatures();

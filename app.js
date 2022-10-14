@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = 4000;
+const PORT = 3000;
 
 app.use(
   morgan(':method - :url - status: :status - response time: :response-time ms ')

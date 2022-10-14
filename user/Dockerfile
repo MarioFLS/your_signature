@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 4100
 
-CMD [ "npm", "install" ]
+CMD [ "node", "app.js" ]

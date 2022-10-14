@@ -5,10 +5,12 @@ module.exports = {
       [
         {
           id: 1,
-          name: 'iPhone 13',
-          price: 4397.07,
-          url_image: 'http://localhost:3200/images/iPhone-13-Pro-Max.png',
+          name: 'iPhone 13 Pro',
+          price: 3200.75,
+          url_image: 'http://localhost:3200/images/iPhone-13-Pro.png',
           memoryType1: 64,
+          memoryType2: 128,
+          memoryType3: 256,
         },
         {
           id: 2,
@@ -28,12 +30,10 @@ module.exports = {
         },
         {
           id: 4,
-          name: 'iPhone 13 Pro',
-          price: 3200.75,
-          url_image: 'http://localhost:3200/images/iPhone-13-Pro.png',
+          name: 'iPhone 13',
+          price: 4397.07,
+          url_image: 'http://localhost:3200/images/iPhone-13-Pro-Max.png',
           memoryType1: 64,
-          memoryType2: 128,
-          memoryType3: 256,
         },
         {
           id: 5,

@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently  \"cd user && npm start\" \"cd product && npm start\" \"cd userProducts && npm start \" \"node app.js\"",
-    "devInstall": "concurrently \"npm install \" \"cd user && npm install && npm run restore\" \"cd product && npm install && npm run restore\" \"cd userProducts && npm install \"",
+    "db:install": "concurrently \"npm install \" \"cd user && npm install && npm run restore\" \"cd product && npm install && npm run restore\" \"cd userProducts && npm install \"",
     "restore": "concurrently  \"cd user && npm run restore\" \"cd product && npm run restore\" ",
-    "start:dev": "concurrently  \"cd user && npm run dev\" \"cd product && npm run dev\" \"cd userProducts && npm run dev \" \"nodemon app.js \""
+    "start:first": "concurrently  \"npm run db:install && npm run restore && npm npm start\" ",
+    "start:dev": "concurrently  \"cd user && npm run dev\" \"cd product && npm run dev\" \"cd userProducts && npm run dev \" \"nodemon app.js \"",
+    "start:dev:first": "concurrently  \"npm run db:install && npm run restore && npm run start:dev\" "
   },
   "keywords": [],
   "author": "",

@@ -27,8 +27,9 @@ Isso exige um pouco da sua maquina e um espaço na memória de mais ou menos 1GB
 # Como Utilizar
 
 ## Para utilizar projeto, você precisa ter o [Docker](https://www.docker.com/), [Docker-Compose](https://docs.docker.com/compose/) e [Git](https://github.com/).
-  ### Para Começar, primeiro você precisa Clonar esse repositório.
+  ### Siga o passo a passo na ordem! Para Começar, primeiro você precisa Clonar esse repositório.
   No terminal do seu computador, rode o seguinte comandos:
+  ps: Cheque se o link do git clone é esse mesmo que voce deseja.
   
   ```bash
   git clone git@github.com:MarioFLS/your_signature.git
@@ -36,8 +37,10 @@ Isso exige um pouco da sua maquina e um espaço na memória de mais ou menos 1GB
   #### Entre na pasta criada e inicie a sua IDE. Vamos dar o exemplo usando o Linux e o VSCode:
   ```bash
   cd your_signature
+  npm run db:install
   code .
   ```
+  Caso o comando `npm run db:install`, cheque seu Docker para ver se os containers subiram. Rode novamente se alertar erros de conexão. Pode ser só demora do servidor!
   
   ### <strong>🐳 Usando Docker</strong></summary>
   > Agora você precisa subir os containers, utilize o terminal:

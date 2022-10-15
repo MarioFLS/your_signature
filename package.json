@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "db:install": "npm install && concurrently \"npm install \" \"cd user && npm install && npm run restore\" \"cd product && npm install && npm run restore\" \"cd userProducts && npm install \"",
+    "db:install": "npm install && concurrently \"npm install \" \"cd user && npm install\" \"cd product && npm install\" \"cd userProducts && npm install \"",
     "restore": "concurrently  \"cd user && npm run restore\" \"cd product && npm run restore\" ",
     "start": "concurrently  \"cd user && npm start\" \"cd product && npm start\" \"cd userProducts && npm start \" \"node app.js\"",
     "start:first": "concurrently  \"npm run db:install && npm run restore && npm start\" ",
